@@ -1,0 +1,6 @@
+/workspaces/luawrapper/build/CMakeFiles/lualib.dir
+/workspaces/luawrapper/build/CMakeFiles/lua_wrapper.dir
+/workspaces/luawrapper/build/CMakeFiles/luatest.dir
+/workspaces/luawrapper/build/CMakeFiles/test.dir
+/workspaces/luawrapper/build/CMakeFiles/edit_cache.dir
+/workspaces/luawrapper/build/CMakeFiles/rebuild_cache.dir

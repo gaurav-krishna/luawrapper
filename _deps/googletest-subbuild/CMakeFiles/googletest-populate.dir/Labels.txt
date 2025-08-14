@@ -1,0 +1,14 @@
+# Target labels
+ googletest-populate
+# Source files and their labels
+/workspaces/luawrapper/_deps/googletest-subbuild/CMakeFiles/googletest-populate
+/workspaces/luawrapper/_deps/googletest-subbuild/CMakeFiles/googletest-populate.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test.rule
+/workspaces/luawrapper/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update.rule

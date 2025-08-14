@@ -3,7 +3,18 @@ cmake_minimum_required(VERSION 3.14)
 project(LuaWrapper LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_C_STANDARD   99)
+
+# Add compiler flags for stricter C++20 mode
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    add_compile_options(-fconcepts-diagnostics-depth=2)
+    add_compile_options(-ftemplate-backtrace-limit=0)
+endif()
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    add_compile_options(-fconcepts-diagnostics-depth=2)
+endif()
 
 # ---------------------------------------------------------------------------
 # 1️⃣ Build Lua (static library)
@@ -17,7 +28,7 @@ add_library(lualib STATIC
     third_party/lua/lctype.c
     third_party/lua/ldblib.c
     third_party/lua/ldebug.c
-    third_partyua/ldo.c
+    third_party/lua/ldo.c
     third_party/lua/ldump.c
     third_party/lua/lfunc.c
     third_party/lua/lgc.c
@@ -46,12 +57,27 @@ add_library(lualib STATIC
 target_include_directories(lualib PUBLIC third_party/lua)
 
 # ---------------------------------------------------------------------------
-# 2️⃣ Build the wrapper library
+# 2️⃣ Set up GTest
+# ---------------------------------------------------------------------------
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG v1.14.0
+)
+
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+# ---------------------------------------------------------------------------
+# 3️⃣ Build the wrapper library
 # ---------------------------------------------------------------------------
 add_library(lua_wrapper
     src/LuaEngine.cpp
     src/LuaException.cpp
 )
+
 target_include_directories(lua_wrapper PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
@@ -62,6 +88,7 @@ target_link_libraries(lua_wrapper PUBLIC lualib)
 # ---------------------------------------------------------------------------
 enable_testing()
 find_package(GTest REQUIRED)
+
 add_executable(luatest test/LuaEngineTest.cpp)
 target_link_libraries(luatest PRIVATE lua_wrapper GTest::gtest GTest::gtest_main)
 add_test(NAME LuaEngineTests COMMAND luatest)

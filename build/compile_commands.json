@@ -1,0 +1,218 @@
+[
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lapi.c.o -c /workspaces/luawrapper/third_party/lua/lapi.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lapi.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lapi.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lauxlib.c.o -c /workspaces/luawrapper/third_party/lua/lauxlib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lauxlib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lauxlib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lbaselib.c.o -c /workspaces/luawrapper/third_party/lua/lbaselib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lbaselib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lbaselib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lcode.c.o -c /workspaces/luawrapper/third_party/lua/lcode.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lcode.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lcode.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lcorolib.c.o -c /workspaces/luawrapper/third_party/lua/lcorolib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lcorolib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lcorolib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lctype.c.o -c /workspaces/luawrapper/third_party/lua/lctype.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lctype.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lctype.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/ldblib.c.o -c /workspaces/luawrapper/third_party/lua/ldblib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/ldblib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/ldblib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/ldebug.c.o -c /workspaces/luawrapper/third_party/lua/ldebug.c",
+  "file": "/workspaces/luawrapper/third_party/lua/ldebug.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/ldebug.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/ldo.c.o -c /workspaces/luawrapper/third_party/lua/ldo.c",
+  "file": "/workspaces/luawrapper/third_party/lua/ldo.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/ldo.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/ldump.c.o -c /workspaces/luawrapper/third_party/lua/ldump.c",
+  "file": "/workspaces/luawrapper/third_party/lua/ldump.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/ldump.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lfunc.c.o -c /workspaces/luawrapper/third_party/lua/lfunc.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lfunc.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lfunc.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lgc.c.o -c /workspaces/luawrapper/third_party/lua/lgc.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lgc.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lgc.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/linit.c.o -c /workspaces/luawrapper/third_party/lua/linit.c",
+  "file": "/workspaces/luawrapper/third_party/lua/linit.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/linit.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/liolib.c.o -c /workspaces/luawrapper/third_party/lua/liolib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/liolib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/liolib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/llex.c.o -c /workspaces/luawrapper/third_party/lua/llex.c",
+  "file": "/workspaces/luawrapper/third_party/lua/llex.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/llex.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lmathlib.c.o -c /workspaces/luawrapper/third_party/lua/lmathlib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lmathlib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lmathlib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lmem.c.o -c /workspaces/luawrapper/third_party/lua/lmem.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lmem.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lmem.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/loadlib.c.o -c /workspaces/luawrapper/third_party/lua/loadlib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/loadlib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/loadlib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lobject.c.o -c /workspaces/luawrapper/third_party/lua/lobject.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lobject.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lobject.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lopcodes.c.o -c /workspaces/luawrapper/third_party/lua/lopcodes.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lopcodes.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lopcodes.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/loslib.c.o -c /workspaces/luawrapper/third_party/lua/loslib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/loslib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/loslib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lparser.c.o -c /workspaces/luawrapper/third_party/lua/lparser.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lparser.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lparser.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lstate.c.o -c /workspaces/luawrapper/third_party/lua/lstate.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lstate.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lstate.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lstring.c.o -c /workspaces/luawrapper/third_party/lua/lstring.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lstring.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lstring.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lstrlib.c.o -c /workspaces/luawrapper/third_party/lua/lstrlib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lstrlib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lstrlib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/ltable.c.o -c /workspaces/luawrapper/third_party/lua/ltable.c",
+  "file": "/workspaces/luawrapper/third_party/lua/ltable.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/ltable.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/ltablib.c.o -c /workspaces/luawrapper/third_party/lua/ltablib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/ltablib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/ltablib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/ltm.c.o -c /workspaces/luawrapper/third_party/lua/ltm.c",
+  "file": "/workspaces/luawrapper/third_party/lua/ltm.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/ltm.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lua.c.o -c /workspaces/luawrapper/third_party/lua/lua.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lua.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lua.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lundump.c.o -c /workspaces/luawrapper/third_party/lua/lundump.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lundump.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lundump.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lutf8lib.c.o -c /workspaces/luawrapper/third_party/lua/lutf8lib.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lutf8lib.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lutf8lib.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lvm.c.o -c /workspaces/luawrapper/third_party/lua/lvm.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lvm.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lvm.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/gcc  -I/workspaces/luawrapper/third_party/lua -g -std=gnu99 -o CMakeFiles/lualib.dir/third_party/lua/lzio.c.o -c /workspaces/luawrapper/third_party/lua/lzio.c",
+  "file": "/workspaces/luawrapper/third_party/lua/lzio.c",
+  "output": "CMakeFiles/lualib.dir/third_party/lua/lzio.c.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/g++  -I/workspaces/luawrapper/include -I/workspaces/luawrapper/third_party/lua -g -std=gnu++17 -o CMakeFiles/lua_wrapper.dir/src/LuaEngine.cpp.o -c /workspaces/luawrapper/src/LuaEngine.cpp",
+  "file": "/workspaces/luawrapper/src/LuaEngine.cpp",
+  "output": "CMakeFiles/lua_wrapper.dir/src/LuaEngine.cpp.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/g++  -I/workspaces/luawrapper/include -I/workspaces/luawrapper/third_party/lua -g -std=gnu++17 -o CMakeFiles/lua_wrapper.dir/src/LuaException.cpp.o -c /workspaces/luawrapper/src/LuaException.cpp",
+  "file": "/workspaces/luawrapper/src/LuaException.cpp",
+  "output": "CMakeFiles/lua_wrapper.dir/src/LuaException.cpp.o"
+},
+{
+  "directory": "/workspaces/luawrapper/build",
+  "command": "/usr/bin/g++ -DGTEST_LINKED_AS_SHARED_LIBRARY=1 -I/workspaces/luawrapper/include -I/workspaces/luawrapper/third_party/lua -isystem /opt/conda/include -g -std=gnu++17 -o CMakeFiles/luatest.dir/test/LuaEngineTest.cpp.o -c /workspaces/luawrapper/test/LuaEngineTest.cpp",
+  "file": "/workspaces/luawrapper/test/LuaEngineTest.cpp",
+  "output": "CMakeFiles/luatest.dir/test/LuaEngineTest.cpp.o"
+}
+]

@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblua_wrapper.a CMakeFiles/lua_wrapper.dir/src/LuaEngine.cpp.o CMakeFiles/lua_wrapper.dir/src/LuaException.cpp.o
+/usr/bin/ranlib liblua_wrapper.a

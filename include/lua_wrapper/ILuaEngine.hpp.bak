@@ -1,0 +1,105 @@
+#pragma once
+
+#include "lua_type_traits.hpp"
+#include    template<typename ReturnType, typename... Args>
+    ReturnType callGlobal(const std::string& name, Args&&... args) {
+        doGetGlobal(name);
+        (detail::lua_type_traits<Args>::push(getState(), std::forward<Args>(args)), ...);
+        if (!doCallFunction(sizeof...(Args), 1)) {
+            throw LuaException("Failed to call function");
+        }
+        if constexpr (std::is_void_v<ReturnType>) {
+            detail::lua_type_traits<void>::get(getState());
+            return;
+        } else {
+            return detail::lua_type_traits<ReturnType>::get(getState(), -1);
+        }
+    }n_traits.hpp"
+#include "template_utils.hpp"
+#include <string>
+#include <vector>
+#include <typeinfo>
+#include <type_traits>
+
+extern "C" {
+#include "lua.h"
+}
+
+namespace lua_wrapper {
+
+class LuaException;
+
+template<typename T>
+struct lua_type_traits;
+
+class ILuaEngine {
+public:
+    virtual ~ILuaEngine() = default;
+
+    // Core Lua operations
+    virtual void executeFile(const std::string& path) = 0;
+    virtual bool doLoadString(const std::string& script) = 0;
+    virtual bool doCallFunction(int nargs, int nresults) = 0;
+    virtual void doGetGlobal(const std::string& name) = 0;
+    
+    // State access
+    virtual lua_State* getState() const = 0;
+
+    // Function registration
+    virtual void registerFunctionImplRaw(const std::string& name, 
+                                       void* funcPtr,
+                                       const std::type_info* returnType,
+                                       const std::vector<const std::type_info*>& argTypes) = 0;
+
+    // Template interface for executing Lua code
+    template<typename ReturnType>
+    ReturnType execute(const std::string& script) {
+        if (!doLoadString(script)) {
+            throw LuaException("Failed to load script");
+        }
+        if (!doCallFunction(0, 1)) {  // No args, one return value
+            throw LuaException("Failed to execute script");
+        }
+        if constexpr (std::is_void_v<ReturnType>) {
+            detail::lua_type_traits<void>::get(getState());
+            return;
+        } else {
+            return detail::lua_type_traits<ReturnType>::get(getState(), -1);
+        }
+    }
+
+    // Template interface for calling global functions
+    template<typename ReturnType, typename... Args>
+    ReturnType callGlobal(const std::string& name, Args&&... args) {
+        doGetGlobal(name);
+        (detail::lua_type_traits<Args>::push(getState(), std::forward<Args>(args)), ...);
+        if (!doCallFunction(sizeof...(Args), 1)) {
+            throw LuaException("Failed to call function");
+        }
+        if constexpr (std::is_void_v<ReturnType>) {
+            detail::lua_type_traits<void>::get(getState());
+            return;
+        } else {
+            return detail::lua_type_traits<ReturnType>::get(getState(), -1);
+        }
+    }
+
+    // Template interface for registering C++ functions
+    template<typename F>
+    void registerFunction(const std::string& name, F&& func) {
+        using func_type = std::remove_reference_t<F>;
+        using traits = function_traits<func_type>;
+        
+        std::vector<const std::type_info*> argTypes;
+        template_for<traits::arity>([&](auto I) {
+            argTypes.push_back(&typeid(typename traits::template arg<I>));
+        });
+
+        registerFunctionImplRaw(name, 
+                              reinterpret_cast<void*>(&func),
+                              &typeid(typename traits::return_type),
+                              argTypes);
+    }
+};
+
+} // namespace lua_wrapper

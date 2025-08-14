@@ -1,7 +1,13 @@
-// include/lua_wrapper/LuaEngine.hpp
 #pragma once
-#include "ILuaEngine.hpp"
-#include "LuaException.hpp"
+#include <cstddef>
+#include <functional>
+#include <memory>
+#include <unordered_map>
+#include <type_traits>
+#include <vector>
+#include <string>
+#include <new>
+#include <cstring>
 
 extern "C" {
 #include "lua.h"
@@ -9,35 +15,39 @@ extern "C" {
 #include "lualib.h"
 }
 
-#include <memory>
-#include <unordered_map>
+
+#include "ILuaEngine.hpp"
+#include "ILuaEngine.hpp"
+#include "LuaException.hpp"
+#include "function_wrapper.hpp"
+#include "lua_type_traits.hpp"
 
 namespace lua_wrapper {
 
 class LuaEngine final : public ILuaEngine {
 public:
-    explicit LuaEngine();                     // creates a new lua_State
-    ~LuaEngine() override;                    // closes the state
+    explicit LuaEngine();  // creates a new lua_State
+    ~LuaEngine() override = default; // unique_ptr takes care of cleanup
 
-    // ────── ILuaEngine implementation ──────
-    void execute(const std::string& script) override;
+    // Implementation of pure virtual functions
     void executeFile(const std::string& path) override;
-    void registerFunction(const std::string& name,
-                          LuaCFunction func) override;
-    std::vector<std::string> callGlobal(const std::string& funcName,
-                                        const std::vector<std::string>& args,
-                                        int expectedRetVals) override;
+    bool doLoadString(const std::string& script) override;
+    bool doCallFunction(int nargs, int nresults) override;
+    void doGetGlobal(const std::string& name) override;
+    lua_State* getState() const override { return m_state.get(); }
+    void registerFunctionImplRaw(const std::string& name, void* funcPtr,
+                                const std::type_info* retType,
+                                const std::vector<const std::type_info*>& argTypes) override;
+
+protected:
+    struct lua_state_deleter {
+        void operator()(lua_State* L) const { 
+            if (L) lua_close(L); 
+        }
+    };
 
 private:
-    // Helper to push a C++ std::function as a C closure.
-    static int luaFunctionDispatcher(lua_State* L);
-
-    // State ownership – RAII.
-    std::unique_ptr<lua_State, decltype(&lua_close)> m_state;
-
-    // Mapping from Lua registry keys → C++ callbacks.
-    // The key is the address of the `LuaCFunction` stored on the heap.
-    std::unordered_map<void*, LuaCFunction> m_callbacks;
+    std::unique_ptr<lua_State, lua_state_deleter> m_state;
 };
 
 } // namespace lua_wrapper

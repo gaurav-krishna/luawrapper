@@ -1,0 +1,22 @@
+[ 72%] Built target lualib
+[ 74%] Building CXX object CMakeFiles/lua_wrapper.dir/src/LuaEngine.cpp.o
+[ 76%] Building CXX object CMakeFiles/lua_wrapper.dir/src/LuaException.cpp.o
+[ 78%] Linking CXX static library liblua_wrapper.a
+[ 78%] Built target lua_wrapper
+[ 80%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 82%] Linking CXX static library ../../../lib/libgtest.a
+[ 82%] Built target gtest
+[ 85%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 87%] Linking CXX static library ../../../lib/libgtest_main.a
+[ 87%] Built target gtest_main
+[ 89%] Building CXX object CMakeFiles/luatest.dir/test/LuaEngineTest.cpp.o
+[ 91%] Linking CXX executable luatest
+/usr/bin/ld: liblualib.a(loslib.c.o): in function `os_tmpname':
+loslib.c:(.text+0x17e): warning: the use of `tmpnam' is dangerous, better use `mkstemp'
+[ 91%] Built target luatest
+[ 93%] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[ 95%] Linking CXX static library ../../../lib/libgmock.a
+[ 95%] Built target gmock
+[ 97%] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[100%] Linking CXX static library ../../../lib/libgmock_main.a
+[100%] Built target gmock_main

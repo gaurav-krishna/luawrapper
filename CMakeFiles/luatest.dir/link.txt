@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/luatest.dir/test/LuaEngineTest.cpp.o -o luatest  liblua_wrapper.a lib/libgtest.a lib/libgtest_main.a liblualib.a lib/libgtest.a 

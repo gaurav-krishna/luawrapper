@@ -1,0 +1,143 @@
+#pragma once
+#include <functional>
+#include <string>
+#include <vector>
+#include <type_traits>
+#include <tuple>
+#include "LuaException.hpp"
+#include "lua_type_traits.hpp"
+
+extern "C" {
+#include "lua.h"
+#include "lauxlib.h"
+#include "lualib.h"
+}
+
+namespace lua_wrapper {
+
+namespace detail {
+// Helpers for template metaprogramming
+template<typename T> struct function_traits;
+
+// Function pointer specialization 
+template<typename R, typename... Args>
+struct function_traits<R(*)(Args...)> {
+    using return_type = R;
+    using function_type = R(Args...);
+    using arguments = std::tuple<Args...>;
+    static constexpr size_t arity = sizeof...(Args);
+};
+
+// Function reference specialization
+template<typename R, typename... Args>
+struct function_traits<R(&)(Args...)> : function_traits<R(*)(Args...)> {};
+
+// Member function pointer specializations
+template<typename C, typename R, typename... Args>
+struct function_traits<R(C::*)(Args...)> : function_traits<R(*)(Args...)> {};
+
+template<typename C, typename R, typename... Args>
+struct function_traits<R(C::*)(Args...) const> : function_traits<R(*)(Args...)> {};
+
+// std::function specialization 
+template<typename R, typename... Args>
+struct function_traits<std::function<R(Args...)>> : function_traits<R(*)(Args...)> {};
+
+// Generic callable object/lambda specialization
+template<typename F> 
+struct function_traits {
+private:
+    using call_type = function_traits<decltype(&F::operator())>;
+public:
+    using return_type = typename call_type::return_type;
+    using function_type = typename call_type::function_type;
+    using arguments = typename call_type::arguments;
+    static constexpr size_t arity = call_type::arity;
+};
+
+} // namespace detail
+
+class ILuaEngine {
+public:
+    using LuaCFunction = std::function<int(void*)>;
+
+    virtual ~ILuaEngine() = default;
+    
+    // Pure virtual functions
+    virtual void executeFile(const std::string& path) = 0;
+    virtual bool doLoadString(const std::string& script) = 0;
+    virtual bool doCallFunction(int nargs, int nresults) = 0;
+    virtual void doGetGlobal(const std::string& name) = 0;
+    virtual lua_State* getState() const = 0;
+    virtual void registerFunctionImplRaw(const std::string& name, void* funcPtr, 
+                                       const std::type_info* retType, 
+                                       const std::vector<const std::type_info*>& argTypes) = 0;
+
+    // Template methods
+    template<typename T>
+    T execute(const std::string& script) {
+        if (!doLoadString(script)) {
+            throw LuaException("Failed to load script");
+        }
+        
+        if (!doCallFunction(0, std::is_void_v<T> ? 0 : 1)) {
+            throw LuaException("Failed to execute script");
+        }
+
+        if constexpr(std::is_void_v<T>) {
+            return;
+        } else {
+            T result = detail::lua_type_traits<T>::get(getState(), -1);
+            lua_pop(getState(), 1);
+            return result;
+        }
+    }
+
+    template<typename Ret, typename... Args>
+    Ret callGlobal(const std::string& name, Args&&... args) {
+        doGetGlobal(name);
+        
+        // Push arguments
+        int dummy[] = { (detail::lua_type_traits<typename std::remove_reference<Args>::type>::push(
+            getState(), std::forward<Args>(args)), 0)... };
+        (void)dummy; // Suppress unused variable warning
+
+        if (!doCallFunction(sizeof...(Args), std::is_void_v<Ret> ? 0 : 1)) {
+            throw LuaException("Failed to call global function");
+        }
+
+        if constexpr(std::is_void_v<Ret>) {
+            return;
+        } else {
+            Ret result = detail::lua_type_traits<Ret>::get(getState(), -1);
+            lua_pop(getState(), 1);
+            return result;
+        }
+    }
+
+    // Function registration methods
+    template<typename F>
+    void registerFunction(const std::string& name, F&& func) {
+        using FTraits = detail::function_traits<std::remove_reference_t<F>>;
+        using FType = typename FTraits::function_type;
+        using RetType = typename FTraits::return_type;
+        using ArgsTuple = typename FTraits::arguments;
+
+        auto fn = std::function<FType>(std::forward<F>(func));
+        std::vector<const std::type_info*> argTypes;
+        collectArgTypes<ArgsTuple>(argTypes);
+        registerFunctionImplRaw(name, reinterpret_cast<void*>(new auto(std::move(fn))), &typeid(RetType), argTypes);
+    }
+
+private:
+    template<typename Tuple>
+    void collectArgTypes(std::vector<const std::type_info*>& types) {
+        if constexpr(std::tuple_size_v<Tuple> > 0) {
+            std::apply([&](auto&&... args) {
+                (types.push_back(&typeid(decltype(args))), ...);
+            }, Tuple{});
+        }
+    }
+};
+
+} // namespace lua_wrapper
